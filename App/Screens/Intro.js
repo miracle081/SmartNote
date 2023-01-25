@@ -7,7 +7,6 @@ import * as Font from 'expo-font';
 import { Pacifico_400Regular } from "@expo-google-fonts/pacifico";
 import { Quicksand_500Medium } from "@expo-google-fonts/quicksand";
 import { Theme } from "../Services/theme";
-import { faNotesMedical, faNoteSticky, faStickyNote } from "@fortawesome/free-solid-svg-icons";
 
 export function Intro({ navigation }) {
     const [appIsReady, setAppIsReady] = useState(false);
@@ -26,6 +25,7 @@ export function Intro({ navigation }) {
 
         prepare();
     }, []);
+
     useCallback(async () => {
         if (appIsReady) {
             await SplashScreen.hideAsync();
@@ -48,7 +48,6 @@ export function Intro({ navigation }) {
             </Text>
             <View style={{ marginHorizontal: 10, marginTop: 20 }}>
                 <AppButton>Get Started</AppButton>
-                <AppButton>Log In</AppButton>
             </View>
         </View>
     )
