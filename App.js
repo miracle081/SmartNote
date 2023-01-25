@@ -5,6 +5,9 @@ import { StackNavigator } from './App/Components/StackNavigator';
 import { Intro } from './App/Screens/Intro';
 import { Components } from './components';
 
+
+// npm install --legacy-peer-deps
+
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
