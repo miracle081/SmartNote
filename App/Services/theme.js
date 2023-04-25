@@ -7,14 +7,12 @@ export const Theme = {
     maroon200: '#FF97C1',
     maroon100: '#FFC4C4',
   },
-  sizes: [0, 4, 8, 16, 32, 64, 128],
-  fonts: {
-    fontFamily: {
-      brand: 'Lobster_400Regular',
-      reading: 'Lobster_400Regular'
-    },
-    fontSizePoint: {
-      caption: 12, button: 14, body: 16, title: 20, h5: 24, h4: 34, h3: 45, h2: 56, h1: 112
-    }
+  fontFamily: {
+    brand: 'Lobster_400Regular',
+    reading: 'Lobster_400Regular'
+  },
+  fontSize: {
+    caption: 12, button: 14, body: 16, title: 20, h5: 24, h4: 34, h3: 45, h2: 56, h1: 112
   }
+
 }

@@ -1,17 +1,17 @@
 import { Button } from "react-native-paper";
 import { StyleSheet } from "react-native";
-import { Theme } from "../Services/theme";
+import { Theme } from "../Services/Theme";
 
-export function AppButton({ onPress, style,disabled,loading,children, color,mode }) {
+export function AppButton({ onPress, style, disabled, loading, children, color, mode }) {
     return (
         <>
             <Button
-                style={styles.btn || style}
+                style={style || styles.btn}
                 onPress={onPress}
                 disabled={disabled}
-                loading={loading}   
+                loading={loading}
                 color={Theme.colors.maroon900 || color}
-                mode={mode|| "contained"}
+                mode={mode || "contained"}
 
             >
                 {children}
@@ -21,8 +21,8 @@ export function AppButton({ onPress, style,disabled,loading,children, color,mode
 }
 
 const styles = StyleSheet.create({
-    btn:{
-        paddingVertical:5,
-        marginVertical:3
+    btn: {
+        paddingVertical: 5,
+        marginVertical: 3
     }
 })
