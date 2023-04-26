@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Platform, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View, } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import { Theme } from '../Services/Theme';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export function HomeScreen({ navigation }) {
 
@@ -44,12 +46,14 @@ export function HomeScreen({ navigation }) {
                 <View style={{ flexDirection: "row", justifyContent: 'space-between' }}>
                     <Text style={styles.greetingText}>Good Morning</Text>
                 </View>
+                <TouchableOpacity style={styles.addBtn} onPress={() => navigation.navigate("AddNote")}>
+                    <FontAwesomeIcon icon={faPlus} color='white' size={20} />
+                </TouchableOpacity>
+
                 <TouchableOpacity style={styles.singleNote}>
                     <Text style={styles.title}>Welcom to HomeScreen</Text>
-                    <View style={styles.body}>
-                        <Text style={styles.content}>This is the home screen of this app. This is where the user see all the note he/she has been posting</Text>
-                        <Text style={styles.date}>Date: 12/4/2023 11:23 am</Text>
-                    </View>
+                    <Text style={styles.content}>This is the home screen of this app. This is where the user see all the note he/she has been posting</Text>
+                    <Text style={styles.date}>Date: 12/4/2023 11:23 am</Text>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>
@@ -58,7 +62,7 @@ export function HomeScreen({ navigation }) {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#0000000f',
+        backgroundColor: Theme.colors.gray100,
         flex: 1,
         padding: 10,
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : null
@@ -70,8 +74,30 @@ const styles = StyleSheet.create({
     },
     singleNote: {
         backgroundColor: "white",
-        padding:10,
-        borderRadius:10
+        padding: 10,
+        borderRadius: 10
+    },
+    title: {
+        fontSize: 17,
+        fontWeight: '500',
+        color: Theme.colors.gray600
+    },
+    content: {
+        color: Theme.colors.gray600
+    },
+    date: {
+        fontSize: 12,
+        color: Theme.colors.gray600,
+        fontStyle: 'italic',
+        textAlign: "right"
+    },
+    addBtn: {
+        position: "absolute",
+        bottom: 50,
+        right: 20,
+        backgroundColor: Theme.colors.maroon500,
+        padding: 15,
+        borderRadius: 50
     }
 
 })

@@ -47,7 +47,7 @@ export function Intro({ navigation }) {
                 Notes is the best place to jot down quick thoughts or to save longer notes filled with checklists, images, web links, scanned documents, handwritten notes, or sketches.
             </Text>
             <View style={{ marginHorizontal: 10, marginTop: 20 }}>
-                <AppButton onPress={()=> navigation.navigate("Login")}>Get Started</AppButton>
+                <AppButton onPress={()=> navigation.navigate("HomeScreen")} >Get Started</AppButton>
             </View>
         </View>
     )
