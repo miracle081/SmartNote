@@ -1,21 +1,38 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Alert, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import { Theme } from '../Services/Theme'
 import { TextInput } from 'react-native-paper'
 import { AppButton } from '../Components/AppButton'
+import { addDoc, collection, doc } from 'firebase/firestore'
+import { db } from '../Services/Firebase'
 
-export function AddNote() {
+export function AddNote({ navigation }) {
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
 
     function postNote() {
         const now = new Date()
         const obj = {
-            title, content,
+            title,
+            content,
             date: now.toDateString() + " " + now.toLocaleTimeString(),
             id: now.getTime(),
         }
-        console.log(obj);
+        addDoc(collection(db, "notes"), obj)
+            .then(() => {
+                Alert.alert(
+                    "Post Note",
+                    "Your note has been posted successfully",
+                    [{ text: "Ok", onPress: () => navigation.goBack() }]
+                )
+            })
+            .catch(() => {
+                Alert.alert(
+                    "Post Note",
+                    "Failed to post note",
+                    [{ text: "Try again" }]
+                )
+            })
     }
 
     return (

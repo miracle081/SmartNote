@@ -10,7 +10,7 @@ export function AppButton({ onPress, style, disabled, loading, children, color, 
                 onPress={onPress}
                 disabled={disabled}
                 loading={loading}
-                color={Theme.colors.maroon900 || color}
+                color={color || Theme.colors.maroon900}
                 mode={mode || "contained"}
 
             >
