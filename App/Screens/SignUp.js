@@ -4,8 +4,8 @@ import { Button, TextInput, } from 'react-native-paper';
 import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { doc, setDoc, } from 'firebase/firestore';
 import { AppContext } from '../Globals/Appcontext';
-import { authentication, db } from '../Services/Firebase';
 import { AppButton } from '../Components/AppButton';
+import { authentication, db } from '../Globals/Firebase';
 
 export function SignUp({ navigation }) {
     const { setUserUID, setPreloader } = useContext(AppContext);
@@ -31,7 +31,6 @@ export function SignUp({ navigation }) {
                     lName: lName,
                     phoneNumber: phone,
                     email: email,
-                    balance: 0.00,
                 })
                     .then(() => {
                         setUserUID(userUID)

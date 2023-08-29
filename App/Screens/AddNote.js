@@ -1,10 +1,10 @@
 import { Alert, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
-import { Theme } from '../Services/Theme'
 import { TextInput } from 'react-native-paper'
 import { AppButton } from '../Components/AppButton'
 import { addDoc, collection, doc } from 'firebase/firestore'
-import { db } from '../Services/Firebase'
+import { db } from '../Globals/Firebase'
+import { Theme } from '../Globals/theme'
 
 export function AddNote({ navigation }) {
     const [title, setTitle] = useState("")

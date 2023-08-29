@@ -1,6 +1,6 @@
 import { Button } from "react-native-paper";
 import { StyleSheet } from "react-native";
-import { Theme } from "../Services/Theme";
+import { Theme } from "../Globals/theme";
 
 export function AppButton({ onPress, style, disabled, loading, children, color, mode }) {
     return (

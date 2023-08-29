@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Alert, FlatList, Platform, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View, } from 'react-native';
 import { Searchbar } from 'react-native-paper';
-import { Theme } from '../Services/Theme';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faFaceSmile, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { collection, deleteDoc, doc, onSnapshot } from 'firebase/firestore';
-import { db } from '../Services/Firebase';
+import { db } from '../Globals/Firebase';
+import { Theme } from '../Globals/theme';
 
 export function HomeScreen({ navigation }) {
     const [allNotes, setAllNotes] = useState([]);
@@ -90,7 +90,7 @@ export function HomeScreen({ navigation }) {
                             opacity: 0.5,
                             zIndex: -1,
                         }}>
-                        <FontAwesomeIcon icon={faFaceSmile} color="gray" size={120} />
+                        <FontAwesomeIcon style={{ transform: [{ rotate: '45deg' }] }} icon={faFaceSmile} color="gray" size={120} />
                         <Text style={{ fontSize: 16, marginTop: 20, color: 'gray' }}>No Notes yet</Text>
                     </View>}
             </View >

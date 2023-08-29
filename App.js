@@ -6,11 +6,11 @@ import { AppProvider } from './App/Globals/Appcontext';
 
 export default function App() {
   return (
-      <AppProvider>
-        <NavigationContainer>
-          <StackNavigator />
-        </NavigationContainer>
-      </AppProvider>
+    <AppProvider>
+      <NavigationContainer>
+        <StackNavigator />
+      </NavigationContainer>
+    </AppProvider>
   );
 }
 
@@ -18,8 +18,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
     paddingTop: Platform.OS == "android" ? StatusBar.currentHeight : null
   },
 });

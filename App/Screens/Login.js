@@ -4,9 +4,10 @@ import { Button, TextInput, } from 'react-native-paper';
 import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 import { Formik } from 'formik';
 import * as Yup from 'yup'
-import { authentication } from '../Services/Firebase';
 import { AppContext } from '../Globals/Appcontext';
 import { AppButton } from '../Components/AppButton';
+import { authentication } from '../Globals/Firebase';
+
 export function Login({ navigation, route }) {
 
     const { setPreloader, setUserUID } = useContext(AppContext);

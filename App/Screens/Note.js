@@ -1,10 +1,10 @@
 import { Alert, StyleSheet, Text, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
-import { Theme } from '../Services/Theme'
+import React, { useEffect, useState } from 'react';
 import { TextInput } from 'react-native-paper'
 import { AppButton } from '../Components/AppButton'
 import { deleteDoc, doc, onSnapshot, updateDoc } from 'firebase/firestore'
-import { db } from '../Services/Firebase'
+import { Theme } from '../Globals/theme';
+import { db } from '../Globals/Firebase';
 
 export function Note({ navigation, route }) {
     const { id } = route.params

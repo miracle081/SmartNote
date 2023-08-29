@@ -6,7 +6,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import { Pacifico_400Regular } from "@expo-google-fonts/pacifico";
 import { Quicksand_500Medium } from "@expo-google-fonts/quicksand";
-import { Theme } from "../Services/Theme";
+import { Theme } from "../Globals/theme";
 
 export function Intro({ navigation }) {
     const [appIsReady, setAppIsReady] = useState(false);
@@ -47,7 +47,7 @@ export function Intro({ navigation }) {
                 Notes is the best place to jot down quick thoughts or to save longer notes filled with checklists, images, web links, scanned documents, handwritten notes, or sketches.
             </Text>
             <View style={{ marginHorizontal: 10, marginTop: 20 }}>
-                <AppButton onPress={()=> navigation.navigate("HomeScreen")} >Get Started</AppButton>
+                <AppButton onPress={() => navigation.navigate("HomeScreen")} >Get Started</AppButton>
             </View>
         </View>
     )
@@ -67,9 +67,9 @@ const styles = StyleSheet.create({
         fontSize: 25,
         color: Theme.colors.maroon900
     },
-    logo:{
-        width:60,
-        height:60,
-        borderRadius:20
+    logo: {
+        width: 60,
+        height: 60,
+        borderRadius: 20
     }
 })
