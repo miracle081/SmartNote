@@ -3,13 +3,15 @@ import { StatusBar as Bar } from 'expo-status-bar';
 import { StyleSheet, Text, View, StatusBar, Platform, SafeAreaView } from 'react-native';
 import { StackNavigator } from './App/Components/StackNavigator';
 import { AppProvider } from './App/Globals/Appcontext';
+import { Notification } from './Notification';
 
 export default function App() {
   return (
     <AppProvider>
-      <NavigationContainer>
+      {/* <NavigationContainer>
         <StackNavigator />
-      </NavigationContainer>
+      </NavigationContainer> */}
+      <Notification />
     </AppProvider>
   );
 }

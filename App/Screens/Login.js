@@ -24,7 +24,7 @@ export function Login({ navigation, route }) {
                     navigation.navigate('HomeScreen');
                     setPreloader(false)
                 })
-            }) 
+            })
             .catch((error) => {
                 let msg = error.code.split("/").pop()
                 msg = msg.split("-").join(" ")

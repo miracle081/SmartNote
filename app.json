@@ -28,6 +28,23 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2ffaa253-8f2c-4c45-8da6-cee07b32ddd3"
+      }
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./local/assets/logo2.png",
+          "color": "#ffffff",
+          "sounds": [
+            "./local/assets/notification-sound.wav"
+          ]
+        }
+      ]
+    ]
   }
 }
