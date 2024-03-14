@@ -8,10 +8,10 @@ import { Notification } from './Notification';
 export default function App() {
   return (
     <AppProvider>
-      {/* <NavigationContainer>
+      <NavigationContainer>
         <StackNavigator />
-      </NavigationContainer> */}
-      <Notification />
+        <Notification />
+      </NavigationContainer>
     </AppProvider>
   );
 }

@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Text, View, Button, Platform, StyleSheet } from 'react-native';
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
+import { AppContext } from './App/Globals/Appcontext';
 
 Notifications.setNotificationHandler({
     handleNotification: async () => ({
@@ -12,7 +13,7 @@ Notifications.setNotificationHandler({
 });
 
 export function Notification() {
-    const [expoPushToken, setExpoPushToken] = useState('');
+    const { setExpoPushToken } = useContext(AppContext);
     const [notification, setNotification] = useState(false);
 
     useEffect(() => {
@@ -44,55 +45,16 @@ export function Notification() {
                 finalStatus = status;
             }
             if (finalStatus !== 'granted') {
-                alert('Failed to get push token for push notification!');
+                console.log('Failed to get push token for push notification!');
                 return;
             }
 
             token = (await Notifications.getExpoPushTokenAsync({ projectId: '2ffaa253-8f2c-4c45-8da6-cee07b32ddd3' })).data;
-            console.log(token);
+            // console.log(token);
         } else {
-            alert('Must use physical device for Push Notifications');
+            console.log('Must use physical device for Push Notifications');
         }
 
         return token;
     }
-
-    async function sendNotification() {
-        const message = {
-            to: expoPushToken,
-            sound: "default",
-            title: "Transaction Status",
-            body: "1000 transaction successful"
-        }
-        fetch("https://exp.host/--/api/v2/push/send", {
-            method: "POST",
-            headers: {
-                host: "exp.host",
-                accept: "application/json",
-                "accept-encoding": "gzip, deflate",
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(message),
-        })
-    }
-
-    return (
-        <View
-            style={{
-                flex: 1,
-                alignItems: 'center',
-                justifyContent: 'space-around',
-            }}>
-            <Text>Your expo push token: {expoPushToken}</Text>
-            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                <Text>Title: {notification && notification.request.content.title} </Text>
-                <Text>Body: {notification && notification.request.content.body}</Text>
-                <Text>Data: {notification && JSON.stringify(notification.request.content.data)}</Text>
-            </View>
-            <Button
-                title="Press to schedule a notification"
-                onPress={sendNotification}
-            />
-        </View>
-    )
 }

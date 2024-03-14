@@ -1,4 +1,4 @@
-import react, { useCallback, useEffect, useState } from "react";
+import react, { useCallback, useEffect, useState, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { View, Text, StyleSheet, Image, } from "react-native";
 import { AppButton } from "../Components/AppButton";
@@ -7,8 +7,10 @@ import * as Font from 'expo-font';
 import { Pacifico_400Regular } from "@expo-google-fonts/pacifico";
 import { Quicksand_500Medium } from "@expo-google-fonts/quicksand";
 import { Theme } from "../Globals/theme";
+import { AppContext } from "../Globals/Appcontext";
 
 export function Intro({ navigation }) {
+    const { sendNotification } = useContext(AppContext);
     const [appIsReady, setAppIsReady] = useState(false);
 
     useEffect(() => {
@@ -48,6 +50,7 @@ export function Intro({ navigation }) {
             </Text>
             <View style={{ marginHorizontal: 10, marginTop: 20 }}>
                 <AppButton onPress={() => navigation.navigate("HomeScreen")} >Get Started</AppButton>
+                <AppButton onPress={() => sendNotification("HomeScreen", "this is something")} >Get Started</AppButton>
             </View>
         </View>
     )
